@@ -4,6 +4,9 @@
 # BUILD: docker build --rm -t puckel/docker-airflow .
 # SOURCE: https://github.com/puckel/docker-airflow
 
+# with additional help from
+# https://www.docker.com/blog/multi-arch-build-and-images-the-simple-way/
+
 FROM python:3.7-slim-buster
 LABEL maintainer="Puckel_"
 
@@ -76,9 +79,6 @@ RUN set -ex \
     /usr/share/man \
     /usr/share/doc \
     /usr/share/doc-base
-
-COPY requirements.txt .
-RUN pip install -r requirements.txt
 
 COPY script/entrypoint.sh /entrypoint.sh
 COPY config/airflow.cfg ${AIRFLOW_USER_HOME}/airflow.cfg
