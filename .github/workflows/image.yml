@@ -19,4 +19,4 @@ jobs:
       run: |
         docker buildx build \
           --tag wmorgan85/airflow_rpi:latest \
-          --platform linux/amd64/v8,linux/arm/v7,linux/arm64 .
+          --platform linux/amd64,linux/arm/v7,linux/arm64/v8 .
